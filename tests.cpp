@@ -53,3 +53,14 @@ TEST_CASE("Testing move"){
   move(&pos, &vel, 13.3);
   CHECK((pos.x == (8.3 + 2.4 * 13.3) && pos.y == (12.2 - 8.9 * 13.3) && pos.z == (5.8 + 13.4 * 13.3)));
 }
+
+TEST_CASE("Testing createCoord3D"){
+  Coord3D * ppos = createCoord3D(13, 23, 65);
+  CHECK((ppos->x==13 && ppos->y == 23 && ppos->z==65));
+  Coord3D * pvel = createCoord3D(1, -5, 0.2);
+  CHECK((pvel->x==1 && pvel->y == -5 && pvel->z==0.2));
+
+  ppos = createCoord3D(10, 20, 30);
+  CHECK(length(ppos) == sqrt(10*10+20*20+30*30));
+
+}

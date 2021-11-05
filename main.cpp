@@ -29,8 +29,20 @@ int main()
   std::cout << "x: " << std::setw(6) << pos.x << " y: " << std::setw(6) << pos.y << " z: " << std::setw(6) << pos.z << '\n';
   move(&pos, &vel, 2.0); // object pos gets changed
   std::cout << "Position after move:" << '\n';
-  std::cout << "x: " << std::setw(6) << pos.x << " y: " << std::setw(6) << pos.y << " z: " << std::setw(6) << pos.z << '\n';
+  std::cout << "x: " << std::setw(6) << pos.x << " y: " << std::setw(6) << pos.y << " z: " << std::setw(6) << pos.z << "\n\n";
 
+  std::cout << "Part E: Testing createCoord3D and deleteCoord3D" << '\n';
+  Coord3D * ppos = createCoord3D(13, 23, 65);
+  Coord3D * pvel = createCoord3D(1, -5, 0.2);
+
+  std::cout << "Original position:" << '\n';
+  std::cout << "x: " << std::setw(6) << (*ppos).x << " y: " << std::setw(6) << (*ppos).y << " z: " << std::setw(6) << (*ppos).z << '\n';
+  move(ppos, pvel, 2.0);
+  std::cout << "Position after move:" << '\n';
+  std::cout << "x: " << std::setw(6) << (*ppos).x << " y: " << std::setw(6) << (*ppos).y << " z: " << std::setw(6) << (*ppos).z << '\n';
+
+  deleteCoord3D(ppos);
+  deleteCoord3D(pvel);
 
   return 0;
 }
