@@ -1,6 +1,7 @@
 #include <iostream>
 #include "coord3d.h"
 #include "funcs.h"
+#include <iomanip>
 
 int main()
 {
@@ -17,7 +18,19 @@ int main()
   std::cout << "Address of Q: " << &pointQ << '\n';
 
   Coord3D * farther = fartherFromOrigin(&pointP, &pointQ);
-  std::cout << "farther from origin: " << farther << '\n';
+  std::cout << "farther from origin: " << farther << "\n\n";
+
+  std::cout << "Part C: Testing move" << '\n';
+
+  Coord3D pos = {0, 0, 100.0};
+  Coord3D vel = {1, -5, 0.2};
+
+  std::cout << "Original position:" << '\n';
+  std::cout << "x: " << std::setw(6) << pos.x << " y: " << std::setw(6) << pos.y << " z: " << std::setw(6) << pos.z << '\n';
+  move(&pos, &vel, 2.0); // object pos gets changed
+  std::cout << "Position after move:" << '\n';
+  std::cout << "x: " << std::setw(6) << pos.x << " y: " << std::setw(6) << pos.y << " z: " << std::setw(6) << pos.z << '\n';
+
 
   return 0;
 }

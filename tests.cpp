@@ -36,3 +36,20 @@ TEST_CASE("Testing fartherFromOrigin: equal cases"){
   CHECK(fartherFromOrigin(&pointP, &pointQ) == &pointP);
   CHECK(fartherFromOrigin(&pointP, &pointQ) != &pointQ);
 }
+
+TEST_CASE("Testing move"){
+  Coord3D pos = {0, 0, 100.0};
+  Coord3D vel = {1, -5, 0.2};
+  move(&pos, &vel, 2.0);
+  CHECK((pos.x == 2 && pos.y == -10 && pos.z == 100.4));
+
+  pos = {0, 0, 0};
+  vel = {5, 20, -10};
+  move(&pos, &vel, 10.0);
+  CHECK((pos.x == 50 && pos.y == 200 && pos.z == -100));
+
+  pos = {8.3, 12.2, 5.8};
+  vel = {2.4, -8.9, 13.4};
+  move(&pos, &vel, 13.3);
+  CHECK((pos.x == (8.3 + 2.4 * 13.3) && pos.y == (12.2 - 8.9 * 13.3) && pos.z == (5.8 + 13.4 * 13.3)));
+}
