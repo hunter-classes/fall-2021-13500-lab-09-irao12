@@ -34,15 +34,15 @@ int main()
   std::cout << "Part E: Testing createCoord3D and deleteCoord3D" << '\n';
   Coord3D * ppos = createCoord3D(13, 23, 65);
   Coord3D * pvel = createCoord3D(1, -5, 0.2);
-
+  std::cout << "Creating ppos and pvel:" << '\n';
   std::cout << "Original position:" << '\n';
   std::cout << "x: " << std::setw(6) << (*ppos).x << " y: " << std::setw(6) << (*ppos).y << " z: " << std::setw(6) << (*ppos).z << '\n';
   move(ppos, pvel, 2.0);
   std::cout << "Position after move:" << '\n';
   std::cout << "x: " << std::setw(6) << (*ppos).x << " y: " << std::setw(6) << (*ppos).y << " z: " << std::setw(6) << (*ppos).z << '\n';
-
   deleteCoord3D(ppos);
   deleteCoord3D(pvel);
+  std::cout << "ppos and pvel were deleted" << '\n';
 
   return 0;
 }
