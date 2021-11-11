@@ -62,5 +62,7 @@ TEST_CASE("Testing createCoord3D"){
 
   ppos = createCoord3D(10, 20, 30);
   CHECK(length(ppos) == sqrt(10*10+20*20+30*30));
-
+  
+  deleteCoord3D(ppos);
+  deleteCoord3D(pvel);
 }
